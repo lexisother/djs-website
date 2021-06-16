@@ -50,5 +50,9 @@ module.exports = {
         BUILT_AT: JSON.stringify(Date.now()),
       }),
     ],
+    devServer: {
+      compress: true,
+      disableHostCheck: true
+    }
   }),
 };
