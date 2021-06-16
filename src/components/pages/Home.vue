@@ -213,5 +213,21 @@ export default {
       background: lighten($color-content-bg-dark, 4%);
       color: darken($color-content-text-dark, 20%);
     }
+
+    #jumbotron {
+      flex: 0 0 100%;
+      padding: 80px 16px;
+      background-color: #121212;
+      background-image: linear-gradient(to bottom, $color-primary, darken($color-primary, 50%));
+
+      code {
+        display: inline-block;
+        padding: 16px;
+        border-radius: 5px;
+        background: #121212;
+        color: $color-content-text-dark;
+        font-family: $font-monospace;
+      }
+    }
   }
 </style>
