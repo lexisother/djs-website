@@ -1,6 +1,6 @@
 import semver from 'semver';
 
-const json = res => {
+export const json = res => {
   if (!res.ok) throw new Error('Failed to fetch docs data file from GitHub');
   return res.json();
 };
@@ -10,6 +10,7 @@ export default class DocsSource {
     this.id = options.id;
     this.name = options.name;
     this.global = options.global;
+    this.docsRepo = options.docsRepo;
     this.repo = options.repo;
     this.defaultTag = options.defaultTag || 'master';
     this.defaultFile = options.defaultFile || { category: 'general', id: 'welcome' };
@@ -72,6 +73,6 @@ export default class DocsSource {
   }
 
   fetchDocs(tag) {
-    return fetch(`https://raw.githubusercontent.com/${this.repo}/docs/${tag}.json`).then(json);
+    return fetch(`https://raw.githubusercontent.com/${this.docsRepo}/main/${this.id}/${tag}.json`).then(json);
   }
 }
