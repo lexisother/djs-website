@@ -1,0 +1,31 @@
+diff --git a/src/data/RESTSource.js b/src/data/RESTSource.js
+index e6ce063..967b1ff 100644
+--- a/src/data/RESTSource.js
++++ b/src/data/RESTSource.js
+@@ -1,23 +1,14 @@
+ import semver from 'semver';
+-import DocsSource, { json } from './DocsSource';
+-
+-class RESTSource extends DocsSource {
+-  async fetchDocs() {
+-    const res = await fetch(
+-      `https://raw.githubusercontent.com/${this.docsRepo}/main/${this.id}/${this.defaultTag}.json`,
+-    );
+-    return json(res);
+-  }
+-}
++import DocsSource from './DocsSource';
+ 
+ const branchBlacklist = new Set(['docs']);
+-export default new RESTSource({
++export default new DocsSource({
+   id: 'rest',
+   name: 'REST',
+   global: 'REST',
+   docsRepo: 'discordjs/docs',
+   repo: 'discordjs/discord.js',
+-  defaultTag: 'main',
++  defaultTag: 'stable',
+   branchFilter: branch => !branchBlacklist.has(branch) && !branch.startsWith('dependabot/'),
+   tagFilter: tag => semver.gt(tag.replace(/(^@\w+\/\w+@v?)?(?<semver>\d+.\d+.\d+)-?.*/, ''), '0.2.0'),
+ });
