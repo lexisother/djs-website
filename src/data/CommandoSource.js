@@ -17,5 +17,5 @@ export default new CommandoSource({
   docsRepo: 'discordjs/docs',
   repo: 'discordjs/Commando',
   branchFilter: branch => !branchBlacklist.has(branch) && !branch.startsWith('dependabot/'),
-  tagFilter: tag => semver.gt(tag.replace(/^v/, ''), '0.4.1'),
+  tagFilter: tag => semver.gt(tag.replace(/(^@\w+\/\w+@v?)?(?<semver>\d+.\d+.\d+)-?.*/, '$<semver>'), '0.4.1'),
 });
