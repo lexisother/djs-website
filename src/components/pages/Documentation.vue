@@ -12,6 +12,7 @@ import CommandoSource from '../../data/CommandoSource';
 import BuildersSource from '../../data/BuildersSource';
 import VoiceSource from '../../data/VoiceSource';
 import RPCSource from '../../data/RPCSource';
+import RESTSource from '../../data/RESTSource';
 import DocsNavbar from '../docs/Navbar.vue';
 
 export default {
@@ -28,6 +29,7 @@ export default {
         [CollectionSource.id]: CollectionSource,
         [BuildersSource.id]: BuildersSource,
         [VoiceSource.id]: VoiceSource,
+        [RESTSource.id]: RESTSource,
         [CommandoSource.id]: CommandoSource,
         [RPCSource.id]: RPCSource,
       },
