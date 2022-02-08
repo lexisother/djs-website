@@ -26,6 +26,7 @@ export default {
     return {
       sources: {
         [MainSource.id]: MainSource,
+        main: MainSource,
         [CollectionSource.id]: CollectionSource,
         [BuildersSource.id]: BuildersSource,
         [VoiceSource.id]: VoiceSource,
