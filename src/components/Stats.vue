@@ -40,12 +40,12 @@ export default {
         fetch('https://api.github.com/repos/discordjs/discord.js/stats/contributors').then(json, noop),
       ]);
 
-      if (downloads) {
+      if (downloads?.downloads) {
         this.downloads = 0;
         for (const item of downloads.downloads) this.downloads += item.downloads;
         this.downloads = this.downloads.toLocaleString();
       }
-      if (stars) this.stars = stars.stargazers_count.toLocaleString();
+      if (stars?.stargazers_count) this.stars = stars.stargazers_count.toLocaleString();
       if (contributors) this.contributors = contributors.length.toLocaleString();
     },
   },
