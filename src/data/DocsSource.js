@@ -58,6 +58,7 @@ export default class DocsSource {
         if (tag.name === this.defaultTag) continue;
         if (!this.tagFilter(tag.name)) continue;
 
+        tag.name = tag.name.replace(/(^@.*\/.*@v?)?(?<semver>\d+.\d+.\d+)-?.*/, '$<semver>');
         // Make sure the tag is the latest patch version
         if (semver.valid(tag.name)) {
           const majorMinor = `${semver.major(tag.name)}.${semver.minor(tag.name)}`;
