@@ -13,6 +13,7 @@ import BuildersSource from '../../data/BuildersSource';
 import VoiceSource from '../../data/VoiceSource';
 import RPCSource from '../../data/RPCSource';
 import RESTSource from '../../data/RESTSource';
+import ProxySource from '../../data/ProxySource';
 import DocsNavbar from '../docs/Navbar.vue';
 
 export default {
@@ -33,6 +34,7 @@ export default {
         [RESTSource.id]: RESTSource,
         [CommandoSource.id]: CommandoSource,
         [RPCSource.id]: RPCSource,
+        [ProxySource.id]: ProxySource,
       },
       source: MainSource,
       tag: MainSource.defaultTag,
