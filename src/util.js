@@ -100,7 +100,11 @@ export function scopedName(item) {
 
 // Makes a key for a types array/string
 export function typeKey(type) {
-  return typeof type === 'string' ? type : type.join('-');
+  if (Array.isArray(type)) {
+    return typeof type === 'string' ? type : type.join('-');
+  } else {
+    return "";
+  }
 }
 
 // Stupid Holder to Improve Tag Switching

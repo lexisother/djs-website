@@ -7,6 +7,7 @@ import DocsLoader from '../components/docs/Loader.vue';
 import DocsViewer from '../components/docs/Viewer.vue';
 import FileViewer from '../components/docs/FileViewer.vue';
 import ClassViewer from '../components/docs/class-viewer/ClassViewer.vue';
+import FunctionViewer from '../components/docs/FunctionViewer.vue';
 import TypedefViewer from '../components/docs/TypedefViewer.vue';
 import DocsSearch from '../components/docs/Search.vue';
 
@@ -20,6 +21,7 @@ export default new VueRouter({
         { path: ':tag', name: 'docs-tag', component: DocsViewer, children: [
           { path: 'search', name: 'docs-search', component: DocsSearch },
           { path: 'class/:class', name: 'docs-class', component: ClassViewer },
+          { path: 'function/:function', name: 'docs-function', component: FunctionViewer },
           { path: 'typedef/:typedef', name: 'docs-typedef', component: TypedefViewer },
           { path: ':category/:file', name: 'docs-file', component: FileViewer },
         ] },
@@ -47,6 +49,13 @@ export default new VueRouter({
             return {
               name: 'docs-class',
               params: { source: 'main', tag: to.params.tag, class: to.params.class },
+              query: { scrollTo: to.query.scrollto },
+            };
+          } },
+          { path: 'function/:function', redirect(to) {
+            return {
+              name: 'docs-fucntion',
+              params: { source: 'main', tag: to.params.tag, class: to.params.function },
               query: { scrollTo: to.query.scrollto },
             };
           } },

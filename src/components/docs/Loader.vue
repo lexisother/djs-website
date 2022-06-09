@@ -46,6 +46,7 @@ export default {
 
         // Sort everything
         docs.classes.sort((a, b) => a.name.localeCompare(b.name));
+        if (docs.functions) docs.functions.sort((a, b) => a.name.localeCompare(b.name));
         docs.typedefs.sort((a, b) => a.name.localeCompare(b.name));
         for (const c of docs.classes) {
           if (c.props) c.props.sort((a, b) => a.name.localeCompare(b.name));
@@ -82,9 +83,11 @@ export default {
         // Add links for everything
         docs.externals = docs.externals || [];
         docs.classes = docs.classes || [];
+        docs.functions = docs.functions || [];
         docs.typedefs = docs.typedefs || [];
         for (const x of docs.externals) docs.links[x.name] = x.see[0].replace(/\{@link\s+(.+?)\s*\}/i, '$1');
         for (const c of docs.classes) docs.links[c.name] = { name: 'docs-class', params: { class: c.name } };
+        for (const f of docs.functions) docs.links[f.name] = { name: 'docs-function', params: { function: f.name } };
         for (const t of docs.typedefs) docs.links[t.name] = { name: 'docs-typedef', params: { typedef: t.name } };
 
         // Workaround for the single use of inter-source see also linking
@@ -106,6 +109,8 @@ export default {
           SHITS.switching = false;
           if (route.name === 'docs-class') {
             if (!docs.classes.some(c => c.name === route.params.class)) this.goHome();
+          } else if (route.name === 'docs-function') {
+            if (!docs.functions.some(f => f.name === route.params.function)) this.goHome();
           } else if (route.name === 'docs-typedef') {
             if (!docs.typedefs.some(t => t.name === route.params.typedef)) this.goHome();
           } else if (route.name === 'docs-file') {
@@ -139,6 +144,7 @@ export default {
         const delayScroll = fromRoute && (
           this.$route.name !== fromRoute.name ||
             this.$route.params.class !== fromRoute.params.class ||
+            this.$route.params.function !== fromRoute.params.function ||
             this.$route.params.typedef !== fromRoute.params.typedef ||
             this.$route.params.file !== fromRoute.params.file
         );
