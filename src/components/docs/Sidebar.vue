@@ -22,6 +22,17 @@
           </ul>
         </li>
 
+        <li v-if="visibleFunctions.length > 0">
+          Functions
+          <transition-group name="animated-list" tag="ul">
+            <li v-for="func in visibleFunctions" :key="func.name" class="animated-list-item">
+              <router-link exact :to="{ name: 'docs-function', params: { function: func.name } }">
+                {{ func.name }}
+              </router-link>
+            </li>
+          </transition-group>
+        </li>
+
         <li v-if="visibleClasses.length > 0">
           Classes
           <transition-group name="animated-list" tag="ul">
@@ -63,6 +74,12 @@ export default {
   computed: {
     visibleClasses() {
       return this.showPrivate ? this.docs.classes : this.docs.classes.filter(c => c.access !== 'private');
+    },
+
+    visibleFunctions() {
+      return this.docs.functions ?
+        this.showPrivate ? this.docs.functions : this.docs.functions.filter(f => f.access !== 'private') :
+        [];
     },
 
     visibleTypedefs() {

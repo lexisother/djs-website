@@ -79,7 +79,7 @@ export default {
       }
 
       // Redirect to a default route
-      if (!route.params.file && !route.params.class && !route.params.typedef && route.name !== 'docs-search') {
+      if (!route.params.file && !route.params.class && !route.params.function && !route.params.typedef && route.name !== 'docs-search') {
         this.$router.replace({ name: 'docs-file', params: {
           source: this.source.id,
           tag: this.tag,
