@@ -103,7 +103,7 @@ export function typeKey(type) {
   if (Array.isArray(type)) {
     return typeof type === 'string' ? type : type.join('-');
   } else {
-    return "";
+    return '';
   }
 }
 
