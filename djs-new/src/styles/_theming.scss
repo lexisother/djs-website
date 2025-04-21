@@ -1,0 +1,24 @@
+@use 'sass:color';
+
+// Fonts
+$font-regular: Roboto, 'Source Sans Pro', Calibri, Arial, sans-serif;
+$font-monospace: 'Roboto Mono', 'Source Code Pro', Consolas, monospace;
+$font-header: 'Roboto Condensed', 'Source Sans Pro', Calibri, Arial, sans-serif;
+
+// Colours
+$color-primary: #2196f3;
+$color-warn: #f2777a;
+$color-info: lighten($color-primary, 8%);
+$color-secondary: #00afa0;
+$color-tertiary: #f99157;
+$color-quaternary: #d27b53;
+$color-quinary: #cc99cc;
+$color-navbar-bg: #393939;
+$color-footer-text: #888;
+$color-content-bg: #fefefe;
+$color-content-bg-dark: #2d2d2d;
+$color-content-text: #111;
+$color-content-text-dark: #ccc;
+$color-scrolled-bg: color.adjust(#f3f321, $lightness: 10%);
+$color-inactive-border: darken($color-content-bg, 6%);
+$color-inactive-border-dark: lighten($color-content-bg-dark, 6%);
