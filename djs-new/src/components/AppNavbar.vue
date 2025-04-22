@@ -15,7 +15,9 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ repository: string }>();
+import { useGlobalStore } from '@/stores/global';
+
+const { repository } = storeToRefs(useGlobalStore());
 </script>
 
 <style lang="scss">

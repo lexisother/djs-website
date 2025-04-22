@@ -2,7 +2,7 @@
   <div id="home">
     <Slide id="jumbotron">
       <Logo :light="true" id="logo" />
-      <code>npm install discord.js</code><br />
+      <code>npm install discord.js</code>
     </Slide>
 
     <section id="info">
@@ -67,38 +67,8 @@ client.on('message', msg => {
   }
 });
 
-client.login('token');`
+client.login('token');`;
 </script>
-
-<!-- <script lang="ts">
-import Logo from '../Logo.vue'
-import Stats from '../Stats.vue'
-import Slide from '../Slide.vue'
-import MainSource from '../../data/MainSource'
-import Logo from '../Logo.vue'
-import { onMounted } from 'vue'
-
-const emit = defineEmits(['setRepository']);
-const props = defineProps<{konami: boolean}>()
-
-onMounted(() => {
-  emit('setRepository', MainSource.repo)
-})
-
-export default {
-  name: 'home',
-  props: ['konami'],
-  components: {
-    Logo,
-    Stats,
-    Slide,
-  },
-
-  mounted() {
-    this.$emit('setRepository', MainSource.repo)
-  },
-}
-</script> -->
 
 <style lang="scss">
 @use 'sass:color';

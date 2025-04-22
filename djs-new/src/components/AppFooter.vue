@@ -19,42 +19,15 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ darkMode: boolean }>();
-const emit = defineEmits(['toggleDarkMode']);
+import { useGlobalStore } from '@/stores/global';
+
+const store = useGlobalStore();
+const { darkMode } = storeToRefs(store);
+const { toggleDarkMode } = store;
 
 const hash = GIT_COMMIT_HASH;
 const builtAt = new Date(BUILT_AT);
-
-const toggleDarkMode = () => {
-  emit('toggleDarkMode');
-}
 </script>
-
-<!-- <script>
-import Stats from './Stats.vue'
-
-export default {
-  name: 'djs-footer',
-  props: ['darkMode'],
-  components: {
-    Stats,
-  },
-
-  data() {
-    return {
-      hash: GIT_COMMIT_HASH,
-      builtAt: new Date(BUILT_AT),
-    }
-  },
-
-  methods: {
-    toggleDarkMode(event) {
-      this.$emit('toggleDarkMode')
-      event.preventDefault()
-    },
-  },
-}
-</script> -->
 
 <style lang="scss">
 @use 'sass:color';
