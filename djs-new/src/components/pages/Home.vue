@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <Slide id="jumbotron">
-      <Logo :light="true" :konami="konami" id="logo" />
+      <Logo :light="true" id="logo" />
       <code>npm install discord.js</code><br />
     </Slide>
 
@@ -24,20 +24,7 @@
 
       <div class="info-item">
         <h2>Example</h2>
-        <pre><code class="javascript" v-hljs>const Discord = require('discord.js');
-const client = new Discord.Client();
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-
-client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
-  }
-});
-
-client.login('token');</code></pre>
+        <highlightjs language="javascript" :code="code" />
       </div>
 
       <div class="info-item">
@@ -65,6 +52,23 @@ client.login('token');</code></pre>
     </section>
   </div>
 </template>
+
+<script setup lang="ts">
+const code = `const Discord = require('discord.js');
+const client = new Discord.Client();
+
+client.on('ready', () => {
+  console.log(\`Logged in as \${client.user.tag}!\`);
+});
+
+client.on('message', msg => {
+  if (msg.content === 'ping') {
+    msg.reply('Pong!');
+  }
+});
+
+client.login('token');`
+</script>
 
 <!-- <script lang="ts">
 import Logo from '../Logo.vue'

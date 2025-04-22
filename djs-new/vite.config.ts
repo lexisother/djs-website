@@ -22,7 +22,7 @@ export default defineConfig({
       dts: true,
     }),
     AutoImport({
-      imports: ['vue', VueRouterAutoImports],
+      imports: ['vue', '@vueuse/core', VueRouterAutoImports],
       dts: true,
       vueTemplate: true,
     }),
