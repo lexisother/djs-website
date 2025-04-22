@@ -3,7 +3,7 @@ import { execSync } from 'node:child_process'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
+import VueDevTools from 'vite-plugin-vue-devtools'
 import Components from 'unplugin-vue-components/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
@@ -18,7 +18,6 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    vueDevTools(),
     VueRouter({
       dts: true,
     }),
@@ -28,6 +27,7 @@ export default defineConfig({
       vueTemplate: true,
     }),
     Components({ dts: true }),
+    VueDevTools(),
   ],
   resolve: {
     alias: {
