@@ -9,6 +9,7 @@ export default new DocsSource({
   docsRepo: 'discordjs/docs',
   repo: 'discordjs/voice',
   defaultTag: 'stable',
-  branchFilter: branch => !branchBlacklist.has(branch) && !branch.startsWith('dependabot/'),
-  tagFilter: tag => semver.gte(tag.replace(/(^@\w+\/\w+@v?)?(?<semver>\d+.\d+.\d+)-?.*/, '$<semver>'), '0.7.0'),
+  branchFilter: (branch) => !branchBlacklist.has(branch) && !branch.startsWith('dependabot/'),
+  tagFilter: (tag) =>
+    semver.gte(tag.replace(/(^@\w+\/\w+@v?)?(?<semver>\d+.\d+.\d+)-?.*/, '$<semver>'), '0.7.0'),
 });

@@ -18,6 +18,7 @@ export default new RESTSource({
   docsRepo: 'discordjs/docs',
   repo: 'discordjs/discord.js',
   defaultTag: 'main',
-  branchFilter: branch => !branchBlacklist.has(branch) && !branch.startsWith('dependabot/'),
-  tagFilter: tag => semver.gt(tag.replace(/(^@\w+\/\w+@v?)?(?<semver>\d+.\d+.\d+)-?.*/, '$<semver>'), '0.2.0'),
+  branchFilter: (branch) => !branchBlacklist.has(branch) && !branch.startsWith('dependabot/'),
+  tagFilter: (tag) =>
+    semver.gt(tag.replace(/(^@\w+\/\w+@v?)?(?<semver>\d+.\d+.\d+)-?.*/, '$<semver>'), '0.2.0'),
 });

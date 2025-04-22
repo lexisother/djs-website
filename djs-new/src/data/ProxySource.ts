@@ -17,5 +17,5 @@ export default new ProxySource({
   docsRepo: 'discordjs/docs',
   repo: 'discordjs/discord.js',
   defaultTag: 'main',
-  branchFilter: branch => !branchBlacklist.has(branch) && !branch.startsWith('dependabot/'),
+  branchFilter: (branch) => !branchBlacklist.has(branch) && !branch.startsWith('dependabot/'),
 });

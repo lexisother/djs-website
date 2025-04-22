@@ -1,7 +1,7 @@
-import semver from 'semver'
-import DocsSource from './DocsSource'
+import semver from 'semver';
+import DocsSource from './DocsSource';
 
-const branchBlacklist = new Set(['docs', 'webpack', 'v8'])
+const branchBlacklist = new Set(['docs', 'webpack', 'v8']);
 export default new DocsSource({
   id: 'discord.js',
   name: 'Discord',
@@ -12,4 +12,4 @@ export default new DocsSource({
   branchFilter: (branch) => !branchBlacklist.has(branch) && !branch.startsWith('dependabot/'),
   tagFilter: (tag) =>
     semver.gte(tag.replace(/(^@\w+\/\w+@v?)?(?<semver>\d+.\d+.\d+)-?.*/, '$<semver>'), '9.0.0'),
-})
+});
