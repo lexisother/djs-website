@@ -14,11 +14,8 @@
   </header>
 </template>
 
-<script>
-export default {
-  name: 'navbar',
-  props: ['repository'],
-}
+<script setup lang="ts">
+defineProps<{ repository: string }>();
 </script>
 
 <style lang="scss">

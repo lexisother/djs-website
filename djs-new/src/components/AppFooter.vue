@@ -1,10 +1,10 @@
 <template>
   <footer>
     <container>
-      <strong><router-link to="/">discord.js</router-link></strong>
+      <strong><RouterLink to="/">discord.js</RouterLink></strong>
       <p>A powerful library for interacting with the Discord API</p>
-      <stats />
-      <a href="" id="dark-mode-link" @click="toggleDarkMode">
+      <Stats />
+      <a href="" id="dark-mode-link" @click.prevent="toggleDarkMode">
         <em class="fa" :class="darkMode ? 'fa-sun-o' : 'fa-moon-o'"></em>
         Turn {{ darkMode ? 'on' : 'off' }} the lights
       </a>
@@ -18,7 +18,19 @@
   </footer>
 </template>
 
-<script>
+<script setup lang="ts">
+defineProps<{ darkMode: boolean }>();
+const emit = defineEmits(['toggleDarkMode']);
+
+const hash = GIT_COMMIT_HASH;
+const builtAt = new Date(BUILT_AT);
+
+const toggleDarkMode = () => {
+  emit('toggleDarkMode');
+}
+</script>
+
+<!-- <script>
 import Stats from './Stats.vue'
 
 export default {
@@ -42,7 +54,7 @@ export default {
     },
   },
 }
-</script>
+</script> -->
 
 <style lang="scss">
 @use 'sass:color';
