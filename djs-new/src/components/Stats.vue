@@ -6,48 +6,13 @@
   </ul>
 </template>
 
-<script>
-const json = res => res.json();
-const noop = () => {
-  // Do nothing.
-};
-const data = {
-  downloads: `${(6500000).toLocaleString()}+`,
-  stars: `${(6500).toLocaleString()}+`,
-  contributors: '100+',
-  fetching: false,
-};
+<script setup lang="ts">
+import { useStatsStore } from '@/stores/stats';
 
-export default {
-  name: 'stats',
+const store = useStatsStore();
+const { downloads, stars, contributors } = storeToRefs(store);
 
-  data() {
-    return data;
-  },
-
-  beforeMount() {
-    this.fetch();
-  },
-
-  methods: {
-    async fetch() {
-      if (this.fetching) return;
-      this.fetching = true;
-
-      const [downloads, stars, contributors] = await Promise.all([
-        fetch('https://api.npmjs.org/downloads/range/2013-08-21:2100-08-21/discord.js').then(json, noop),
-        fetch('https://api.github.com/repos/discordjs/discord.js').then(json, noop),
-        fetch('https://api.github.com/repos/discordjs/discord.js/stats/contributors').then(json, noop),
-      ]);
-
-      if (downloads?.downloads) {
-        this.downloads = 0;
-        for (const item of downloads.downloads) this.downloads += item.downloads;
-        this.downloads = this.downloads.toLocaleString();
-      }
-      if (stars?.stargazers_count) this.stars = stars.stargazers_count.toLocaleString();
-      if (contributors) this.contributors = contributors.length.toLocaleString();
-    },
-  },
-};
+onMounted(() => {
+  store.fetchData();
+});
 </script>
