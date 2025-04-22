@@ -8,7 +8,7 @@ $font-header: 'Roboto Condensed', 'Source Sans Pro', Calibri, Arial, sans-serif;
 // Colours
 $color-primary: #2196f3;
 $color-warn: #f2777a;
-$color-info: lighten($color-primary, 8%);
+$color-info: color.adjust($color-primary, $lightness: 8%);
 $color-secondary: #00afa0;
 $color-tertiary: #f99157;
 $color-quaternary: #d27b53;
@@ -20,5 +20,5 @@ $color-content-bg-dark: #2d2d2d;
 $color-content-text: #111;
 $color-content-text-dark: #ccc;
 $color-scrolled-bg: color.adjust(#f3f321, $lightness: 10%);
-$color-inactive-border: darken($color-content-bg, 6%);
-$color-inactive-border-dark: lighten($color-content-bg-dark, 6%);
+$color-inactive-border: color.adjust($color-content-bg, $lightness: -6%);
+$color-inactive-border-dark: color.adjust($color-content-bg-dark, $lightness: 6%);

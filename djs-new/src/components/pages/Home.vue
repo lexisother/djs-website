@@ -97,6 +97,7 @@ export default {
 </script> -->
 
 <style lang="scss">
+@use 'sass:color';
 @use '../../styles/theming';
 @use '../../styles/mq';
 
@@ -144,7 +145,7 @@ export default {
     background-image: linear-gradient(
       to bottom,
       theming.$color-primary,
-      darken(theming.$color-primary, 5%)
+      color.adjust(theming.$color-primary, $lightness: -5%)
     );
 
     code {
@@ -210,7 +211,7 @@ export default {
     font-size: 1.1rem;
 
     &:hover {
-      background: lighten(theming.$color-primary, 10%);
+      background: color.adjust(theming.$color-primary, $lightness: 10%);
     }
 
     &:not(:first-of-type) {
@@ -221,7 +222,7 @@ export default {
       background-color: #7289da;
 
       &:hover {
-        background: lighten(#7289da, 10%);
+        background: color.adjust(#7289da, $lightness: 10%);
       }
     }
   }
@@ -232,8 +233,8 @@ export default {
   color: theming.$color-content-text-dark;
 
   pre {
-    background: lighten(theming.$color-content-bg-dark, 4%);
-    color: darken(theming.$color-content-text-dark, 20%);
+    background: color.adjust(theming.$color-content-bg-dark, $lightness: 4%);
+    color: color.adjust(theming.$color-content-text-dark, $lightness: -20%);
   }
 
   #jumbotron {
@@ -243,7 +244,7 @@ export default {
     background-image: linear-gradient(
       to bottom,
       theming.$color-primary,
-      darken(theming.$color-primary, 50%)
+      color.adjust(theming.$color-primary, $lightness: -50%)
     );
 
     code {

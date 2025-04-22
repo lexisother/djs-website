@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'theming';
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto+Mono:400,700|Roboto:400,400i,700');
 
@@ -25,7 +26,7 @@ a {
   text-decoration: none;
 
   &:hover {
-    color: lighten(theming.$color-primary, 20%);
+    color: color.adjust(theming.$color-primary, $lightness: 20%);
   }
 }
 
@@ -46,7 +47,7 @@ input[type='checkbox'] {
   padding: 1px;
   background: none;
   background-clip: content-box;
-  border: 1px solid darken(theming.$color-inactive-border, 15%);
+  border: 1px solid color.adjust(theming.$color-inactive-border, $lightness: -15%);
   border-radius: 4px;
   cursor: pointer;
   transition:
@@ -56,7 +57,7 @@ input[type='checkbox'] {
 
   &:focus,
   &:hover {
-    border-color: lighten(theming.$color-primary, 20%);
+    border-color: color.adjust(theming.$color-primary, $lightness: 20%);
   }
 
   &:checked {
@@ -66,14 +67,14 @@ input[type='checkbox'] {
     &:focus,
     &:hover {
       border-color: theming.$color-primary;
-      background-color: lighten(theming.$color-primary, 20%);
+      background-color: color.adjust(theming.$color-primary, $lightness: 20%);
     }
   }
 
   &.secondary {
     &:focus,
     &:hover {
-      border-color: lighten(theming.$color-secondary, 20%);
+      border-color: color.adjust(theming.$color-secondary, $lightness: 20%);
     }
 
     &:checked {
@@ -83,7 +84,7 @@ input[type='checkbox'] {
       &:focus,
       &:hover {
         border-color: theming.$color-secondary;
-        background-color: lighten(theming.$color-secondary, 20%);
+        background-color: color.adjust(theming.$color-secondary, $lightness: 20%);
       }
     }
   }
@@ -91,7 +92,7 @@ input[type='checkbox'] {
   &.tertiary {
     &:focus,
     &:hover {
-      border-color: lighten(theming.$color-tertiary, 20%);
+      border-color: color.adjust(theming.$color-tertiary, $lightness: 20%);
     }
 
     &:checked {
@@ -101,7 +102,7 @@ input[type='checkbox'] {
       &:focus,
       &:hover {
         border-color: theming.$color-tertiary;
-        background-color: lighten(theming.$color-tertiary, 20%);
+        background-color: color.adjust(theming.$color-tertiary, $lightness: 20%);
       }
     }
   }
@@ -109,7 +110,7 @@ input[type='checkbox'] {
   &.quaternary {
     &:focus,
     &:hover {
-      border-color: lighten(theming.$color-quaternary, 20%);
+      border-color: color.adjust(theming.$color-quaternary, $lightness: 20%);
     }
 
     &:checked {
@@ -119,7 +120,7 @@ input[type='checkbox'] {
       &:focus,
       &:hover {
         border-color: theming.$color-quaternary;
-        background-color: lighten(theming.$color-quaternary, 20%);
+        background-color: color.adjust(theming.$color-quaternary, $lightness: 20%);
       }
     }
   }
@@ -127,7 +128,7 @@ input[type='checkbox'] {
   &.quinary {
     &:focus,
     &:hover {
-      border-color: lighten(theming.$color-quinary, 20%);
+      border-color: color.adjust(theming.$color-quinary, $lightness: 20%);
     }
 
     &:checked {
@@ -137,7 +138,7 @@ input[type='checkbox'] {
       &:focus,
       &:hover {
         border-color: theming.$color-quinary;
-        background-color: lighten(theming.$color-quinary, 20%);
+        background-color: color.adjust(theming.$color-quinary, $lightness: 20%);
       }
     }
   }

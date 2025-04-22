@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style lang="scss">
+@use 'sass:color';
 @use '../styles/theming';
 @use '../styles/mq';
 
@@ -49,7 +50,7 @@ header {
 
     &:hover {
       color: white;
-      background: darken(theming.$color-primary, 10%);
+      background: color.adjust(theming.$color-primary, $lightness: -10%);
     }
   }
 
@@ -58,7 +59,7 @@ header {
 
     a:hover {
       color: white;
-      background: darken(theming.$color-navbar-bg, 10%);
+      background: color.adjust(theming.$color-navbar-bg, $lightness: -10%);
     }
   }
 }

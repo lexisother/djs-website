@@ -45,6 +45,7 @@ export default {
 </script>
 
 <style lang="scss">
+@use 'sass:color';
 @use '../styles/theming';
 
 footer {
@@ -58,7 +59,7 @@ footer {
   }
 
   a:hover {
-    color: lighten(theming.$color-footer-text, 10%);
+    color: color.adjust(theming.$color-footer-text, $lightness: 10%);
   }
 
   .container {
@@ -89,7 +90,7 @@ footer {
   font-size: 0.9rem;
 
   &:hover {
-    background: lighten(theming.$color-primary, 10%);
+    background: color.adjust(theming.$color-primary, $lightness: 10%);
   }
 }
 
@@ -100,13 +101,13 @@ footer {
   overflow: hidden;
   white-space: nowrap;
   font-size: 0.7em;
-  color: darken(theming.$color-footer-text, 35%);
+  color: color.adjust(theming.$color-footer-text, $lightness: -35%);
   transition: all 0.6s;
 
   &:hover {
     width: 32em;
     height: 3.2em;
-    color: darken(theming.$color-footer-text, 10%);
+    color: color.adjust(theming.$color-footer-text, $lightness: -10%);
   }
 }
 </style>
