@@ -12,6 +12,8 @@ declare module 'vue' {
     AppNavbar: typeof import('./src/components/AppNavbar.vue')['default']
     Container: typeof import('./src/components/Container.vue')['default']
     Home: typeof import('./src/components/pages/Home.vue')['default']
+    IFaMoon: typeof import('~icons/fa-regular/moon')['default']
+    IFaSun: typeof import('~icons/fa-regular/sun')['default']
     Logo: typeof import('./src/components/Logo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

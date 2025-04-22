@@ -5,7 +5,9 @@
       <p>A powerful library for interacting with the Discord API</p>
       <Stats />
       <a href="" id="dark-mode-link" @click.prevent="toggleDarkMode">
-        <em class="fa" :class="darkMode ? 'fa-sun-o' : 'fa-moon-o'"></em>
+        <i-fa-sun v-if="darkMode" style="width: 0.9rem" />
+        <i-fa-moon v-else style="width: 0.9rem" />
+
         Turn {{ darkMode ? 'on' : 'off' }} the lights
       </a>
     </container>
@@ -67,7 +69,9 @@ footer {
 }
 
 #dark-mode-link {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: row;
+  gap: 0.3rem;
   padding: 8px 6px;
   border-radius: 4px;
   background: theming.$color-primary;

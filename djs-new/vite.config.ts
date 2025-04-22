@@ -8,6 +8,8 @@ import Components from 'unplugin-vue-components/vite';
 import { VueRouterAutoImports } from 'unplugin-vue-router';
 import VueRouter from 'unplugin-vue-router/vite';
 import AutoImport from 'unplugin-auto-import/vite';
+import IconsResolver from 'unplugin-icons/resolver';
+import Icons from 'unplugin-icons/vite';
 
 import meta from './package.json' with { type: 'json' };
 
@@ -28,7 +30,20 @@ export default defineConfig({
       dts: true,
       vueTemplate: true,
     }),
-    Components({ dts: true }),
+    Components({
+      dts: true,
+      resolvers: [
+        IconsResolver({
+          alias: {
+            fa: 'fa-regular',
+          },
+        }),
+      ],
+    }),
+    Icons({
+      scale: 1.2,
+      compiler: 'vue3',
+    }),
     VueDevTools(),
   ],
   resolve: {
