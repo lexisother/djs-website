@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="darkMode && 'dark'">
     <AppNavbar />
     <RouterView
       :darkMode="darkMode"
@@ -12,5 +12,7 @@
 <script setup lang="ts">
 import { useGlobalStore } from './stores/global';
 
-const { darkMode, toggleDarkMode, setRepository } = useGlobalStore();
+const store = useGlobalStore();
+const { darkMode } = storeToRefs(store);
+const { toggleDarkMode, setRepository } = store;
 </script>
