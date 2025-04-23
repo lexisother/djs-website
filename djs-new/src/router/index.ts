@@ -1,23 +1,24 @@
-import Home from '@/components/pages/Home.vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import Home from '@/components/pages/Home.vue';
+import Documentation from '@/components/pages/Documentation.vue';
+import UnknownRoute from '@/components/pages/UnknownRoute.vue';
+import DocsLoader from '@/components/docs/Loader.vue';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
+// prettier-ignore
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home,
-    },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue'),
-    // },
-  ],
-})
+    { path: '/', name: 'home', component: Home },
+    { path: '/docs', name: 'docs', component: Documentation, children: [
+      { path: ':source', name: 'docs-source', component: DocsLoader, children: [
+        { path: ':tag', name: 'docs-tag', component: Documentation, children: [
+          { path: ':category/:file', name: 'docs-file', component: Documentation }
+        ] },
+      ] },
+    ], },
 
-export default router
+    { path: '/:pathMatch(.*)*', component: UnknownRoute },
+  ],
+});
+
+export default router;

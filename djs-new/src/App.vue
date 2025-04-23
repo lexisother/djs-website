@@ -4,7 +4,7 @@
     <RouterView
       :darkMode="darkMode"
       @toggleDarkMode="toggleDarkMode"
-      @setRepository="setRepository"></RouterView>
+      @setRepository="setRepository" />
     <AppFooter />
   </div>
 </template>

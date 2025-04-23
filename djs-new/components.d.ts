@@ -10,14 +10,19 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     AppNavbar: typeof import('./src/components/AppNavbar.vue')['default']
+    Awesome: typeof import('./src/components/Awesome.vue')['default']
     Container: typeof import('./src/components/Container.vue')['default']
+    Documentation: typeof import('./src/components/pages/Documentation.vue')['default']
     Home: typeof import('./src/components/pages/Home.vue')['default']
     IFaMoon: typeof import('~icons/fa-regular/moon')['default']
     IFaSun: typeof import('~icons/fa-regular/sun')['default']
+    Loader: typeof import('./src/components/docs/Loader.vue')['default']
     Logo: typeof import('./src/components/Logo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Slide: typeof import('./src/components/Slide.vue')['default']
     Stats: typeof import('./src/components/Stats.vue')['default']
+    UnknownPage: typeof import('./src/components/UnknownPage.vue')['default']
+    UnknownRoute: typeof import('./src/components/pages/UnknownRoute.vue')['default']
   }
 }
